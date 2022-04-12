@@ -1,0 +1,13 @@
+bmname = WS100_p0.1_m30_da
+N=100
+底图=WS100.npy
+WS100底图，感染节点占part比例时停止传播，z=0.1，包括多种对比方法，分5类
+part=0.1
+[a,b]=0,100
+every node graphs=30
+sum of edges:
+164580
+
+sum of adj:
+300000
+

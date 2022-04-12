@@ -1,0 +1,13 @@
+bmname = p2p2068_p0.1_m10
+N=2068
+底图=p2p2068.npy
+p2p2068底图，感染节点占part比例时停止传播，测试集，此时node_labels表示所有节点的状态（完全观测）
+part=0.1
+[a,b]=0,2068
+every node graphs=10
+sum of edges:
+45031947
+
+sum of adj:
+42766240
+

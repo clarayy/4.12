@@ -1,0 +1,12 @@
+N=20
+InfectionRate=0.5
+ReturnRate=0.4
+Roundtime=4
+[a,b]=0,20
+every node graphs=100
+sum of edges:
+7112
+
+sum of adj:
+35220
+

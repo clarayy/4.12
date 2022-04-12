@@ -1,0 +1,13 @@
+bmname = BA500_p0.1_m50
+N=500
+底图=BA500.npy
+BA500底图，感染节点占part比例时停止传播，测试集，此时node_labels表示所有节点的状态（完全观测）
+part=0.1
+[a,b]=0,500
+every node graphs=50
+sum of edges:
+3223006
+
+sum of adj:
+12500000
+

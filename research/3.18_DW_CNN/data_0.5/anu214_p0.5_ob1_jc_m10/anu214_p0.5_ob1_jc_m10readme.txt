@@ -1,0 +1,13 @@
+bmname = anu214_p0.5_ob1_jc_m10
+N=214
+底图=anu214.npy
+anu214底图，感染节点占part比例时停止传播，完全观测
+part=0.5
+[a,b]=0,214
+every node graphs=5
+sum of edges:
+1772136
+
+sum of adj:
+227482
+

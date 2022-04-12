@@ -1,0 +1,13 @@
+bmname = WS500_p0.1_m5_da
+N=500
+底图=WS500.npy
+WS500底图，感染节点占part比例时停止传播，z=0.1，包括多种对比方法，分5类
+part=0.1
+[a,b]=0,500
+every node graphs=5
+sum of edges:
+675154
+
+sum of adj:
+1250000
+

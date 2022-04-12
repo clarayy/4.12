@@ -1,0 +1,13 @@
+bmname = BA100_p0.1_ob1_jc_m30
+N=100
+底图=BA100.npy
+BA100底图，感染节点占part比例时停止传播，完全观测
+part=0.1
+[a,b]=0,100
+every node graphs=30
+sum of edges:
+229888
+
+sum of adj:
+275600
+

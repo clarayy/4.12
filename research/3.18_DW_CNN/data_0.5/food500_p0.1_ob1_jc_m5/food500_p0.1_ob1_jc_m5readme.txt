@@ -1,0 +1,13 @@
+bmname = food500_p0.1_ob1_jc_m5
+N=500
+底图=food500.npy
+food500底图，感染节点占part比例时停止传播，完全观测
+part=0.1
+[a,b]=0,500
+every node graphs=5
+sum of edges:
+1983920
+
+sum of adj:
+1055000
+

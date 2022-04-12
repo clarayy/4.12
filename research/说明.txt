@@ -1,0 +1,83 @@
+1.全联接图情况下，感染率为0.0046时，10轮就可以感染全部节点，节点数为400和4000影响不大，很快就可以全部感染。
+2.改为28-social-network后，100轮全部感染。但图像呈阶梯状，改为0.46后20轮感染完，图像呈连续。
+3.输出图的时候同时输出参数好保存结果
+4.假设做实验来验证，则需要多种不同的拓补图，重点是要说的有道理。
+5.同时存储源节点和G，换更大的图来验证，通过感染曲线来验证
+6.保存数据 一张节点为1000固定结构图上传播，传播10次，生成的数据保存结果，源节点label为1，其他节点为-1，
+https://blog.csdn.net/kaever/article/details/106472316
+保存后的本地文件为npz格式。
+需要载入数据时用np.load(file)方法
+7. 创建新的conda环境：
+zhang@zhang:~$ conda create -n GNN python=3.7
+
+  environment location: /home/zhang/anaconda3/envs/GNN
+
+  added / updated specs:
+    - python=3.7
+# To activate this environment, use
+#     $ conda activate GNN
+# To deactivate an active environment, use
+#     $ conda deactivate
+8.pytorch官网
+https://pytorch-geometric.com/whl/
+https://download.pytorch.org/whl/torch_stable.html
+找对应的文件安装
+9.
+    # 比如你想降级到以前的v0.1.10版本
+    conda install pytorch=0.1.10 -c soumith 
+10. 在一张固定的图上生成传播网络，假如生成10份，他们的节点名称是不変的，比如编号3的节点的邻居为453，885，12，
+得到的图的邻接关系是不变的， 不会因节点名称改变而改变邻接矩阵。
+11.类比karate_club GCN来训练一张图
+12.训练时候的问题：1)已知边来构建dgl图，节点的名称发生了变化，之前的I个节点的范围为1-1000，新的dgl的节点命名变为1-I，找不到源节点的位置，
+   2)与start_node连接的边只有一条？why？答：new_G.add_edge(a,int(nbr))这里之前顺序写反了.
+   3)该例子意义不大，主要是对节点进行分类，找到节点相似的组织，
+
+13.graph pooling数据集构建：  m条边 n个节点 N张图
+(1)DA_A.txt   所有的边  N=1000个节点*10张图 每张图的边都记录下来      e.g.1686092条边
+(2)graph_indicator.txt  节点属于的图   n个节点对应的每张图的编号      e.g.334925个节点
+(3)graph_labels.txt    图的分类标签    N张图属于1000个节点类，把每张图的源节点看作该图所属的类    e.g.1178张图
+(4)node_labels.txt    节点的标签      
+
+问题：我的程序每次生成的图的节点命名范围是一样的，把他们组合在一起，节点的名称就重复了 上述数据集的思想是把所有小图合成一个大图，统一编号节点，
+那我该怎么做呢？
+用邻接对角阵。
+
+14.文件说明：1000.npy是1000个节点的原始网络图； A.npy不知道是啥
+datatest.npy是propagation_pro2生成的6*10张图的邻接矩阵组成的对角块，data_A.txt是data_generation,py生成的datatest.npy的邻接矩阵的边
+data_G.txt和data_G1.txt是882生成的传播图的边的列表
+data_generation1.py生成data_graph_indicator.txt
+node_labels可以用节点度来表示。
+
+15.python -m train  --datadir=data --bmname=data --cuda=cpu --num-classes=100
+16.  File "/home/zhang/anaconda3/envs/GNN/lib/python3.7/site-packages/networkx/convert_matrix.py", line 880, in to_scipy_sparse_matrix
+    raise nx.NetworkXError("Graph has no nodes or edges")
+networkx.exception.NetworkXError: Graph has no nodes or edges
+
+17.结果不对可能的原因：
+样本太少，一个节点只有5张图，
+使用的程序有问题，没有用diffpool，
+节点属性用的是节点标签可能有问题，
+程序问题，究竟能不能实现相应的功能。
+18.直接生成readme.txt，将参数写进去，不用自己再记
+
+19.propagation_pro3.py 将无关的邻接矩阵的节点都算进去，主要改变的是 graph_indicator wormpro8 理论600 实际579张图 每张图都有20个节点
+   移到diffpool文件中改名为wormpro9
+20. short_path 将BA20.py 中各个节点之间的最短路径以字典的形式记录下来。
+
+20.propagation_pro3.py 将程序改进一下，不要每次都改很多文件名，改成只用输入一次的那种。
+
+21.变量：
+BAN.py N的值；
+初始图中距离最远的两个节点作为两类源节点，计算原始图的short_path.npy；
+数据集文件名称；
+
+22.propagation_pro4_1  选择部分节点作为可观测节点  问题：边怎么确立？
+propagation_pro4.py 完全可观测节点
+23.graph_propagation.py是BA网络生成的程序，graph_generation.py是规则树/WS网络的生成程序。
+
+24.考虑SIS/SIR模型 propagation_SIS.py  SIS模型 propagation_SIR.py  SIR模型 为完全可观测节点
+
+25.debug propagation_SIS_data.py 为生成数据的程序 其中71行错误：the node 19 is not in the graph.
+
+26.参考文献中：BA网络200节点，BA（200，3）边数为591  
+

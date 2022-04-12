@@ -1,0 +1,12 @@
+bmname = food500_nSIS_z0.1_m2_testjc
+N=500
+底图=food500.npy
+food500，z=0.1后停止传播
+[a,b]=0,500
+every node graphs=2
+sum of edges:
+425763
+
+sum of adj:
+500000
+

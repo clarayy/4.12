@@ -1,0 +1,13 @@
+bmname = WS200_p0.5_ob1_jc_m10
+N=200
+底图=WS200.npy
+WS200底图，感染节点占part比例时停止传播，完全观测
+part=0.5
+[a,b]=0,200
+every node graphs=10
+sum of edges:
+1201502
+
+sum of adj:
+390200
+

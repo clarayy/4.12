@@ -1,0 +1,13 @@
+bmname = food500_nSI_z0.1_m5_c2jc
+N=500
+底图=food500.npy
+food500底图，感染节点占part比例时停止传播，z=0.1，包括多种对比方法，分13类
+part=0.1
+nodelist=[226, 372, 487]
+every node graphs=50
+sum of edges:
+63220
+
+sum of adj:
+75000
+

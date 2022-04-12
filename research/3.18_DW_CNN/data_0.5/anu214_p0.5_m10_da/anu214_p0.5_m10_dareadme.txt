@@ -1,0 +1,13 @@
+bmname = anu214_p0.5_m10_da
+N=214
+底图=anu214.npy
+anu214底图，感染节点占part比例时停止传播，z=0.1，包括多种对比方法，分5类
+part=0.5
+[a,b]=0,214
+every node graphs=5
+sum of edges:
+1797617
+
+sum of adj:
+228980
+

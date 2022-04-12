@@ -1,0 +1,13 @@
+bmname = BA400_p0.1_m1
+N=400
+底图=BA400.npy
+BA400底图，感染节点占part比例时停止传播，z=0.1，包括多种对比方法，分5类
+part=0.1
+[a,b]=0,400
+every node graphs=1
+sum of edges:
+147080
+
+sum of adj:
+160000
+
